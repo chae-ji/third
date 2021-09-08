@@ -36,12 +36,7 @@ public class DeliveryRepositoryTests {
     }
 
 
-    @Test
-    public void read2() {
-        Optional<DeliveryEntity> delivery = deliveryRepository.findById(30L);
-        DeliveryEntity entity = delivery.get();
-        System.out.println(entity);
-    }
+
 
     @Test
     public void read(){
@@ -50,6 +45,13 @@ public class DeliveryRepositoryTests {
             System.out.println(delivery);
         }
 
+    }
+
+    @Test
+    public void read2() {
+        Optional<DeliveryEntity> delivery = deliveryRepository.findById(30L);
+        DeliveryEntity entity = delivery.get();
+        System.out.println(entity);
     }
 
 }
