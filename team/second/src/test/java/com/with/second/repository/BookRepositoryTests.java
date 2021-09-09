@@ -66,6 +66,17 @@ public class BookRepositoryTests {
     }
 
     @Test
+    public void read2(){
+
+        Optional<BookEntity> result = bookRepository.findById(30L);
+
+        BookEntity entity = result.get();
+
+        System.out.println("entity : " + entity);
+    }
+
+
+    @Test
     public void read(){
         List<BookEntity> results = bookRepository.findAll(Sort.by("bno").descending());
 
@@ -75,15 +86,6 @@ public class BookRepositoryTests {
         }
     }
 
-    @Test
-    public void read2(){
-
-        Optional<BookEntity> result = bookRepository.findById(30L);
-
-        BookEntity entity = result.get();
-
-        System.out.println("entity : " + entity);
-    }
 
     @Test
     public void newQuery(){
