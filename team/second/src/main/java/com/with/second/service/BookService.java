@@ -15,6 +15,20 @@ public interface BookService {
 
     List<BookDto> getList();
 
+    List<BookDto> getListSearchByName(String keyword);
+
+    List<BookDto> getListSearchByDepartment(String department);
+
+    List<BookDto> getListSearchByDepartmentAndName (String keyword, String department);
+
+    List<BookDto> getNewOrOldList(boolean isNew);
+
+    List<BookDto> getOldOrNewListSearchByDepartment(String department, boolean isNew);
+
+    List<BookDto> getOldOrNewListSearchByName(String keyword, boolean isNew);
+
+    List<BookDto> getOldOrNewListSearchByNameAndDepartment(String keyword, String department, boolean isNew);
+
     BookDto read(Long bno);
 
     void remove(Long bno);
