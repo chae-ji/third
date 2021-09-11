@@ -103,7 +103,7 @@ public class BookController {
     }
 
     @DeleteMapping("/remove/{bno}")
-    public HttpStatus remove(@PathVariable Long bno){
+    public HttpStatus remove(@PathVariable("bno") Long bno){
 
         log.info("bno : " + bno);
 

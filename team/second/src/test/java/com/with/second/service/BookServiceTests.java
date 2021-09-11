@@ -2,11 +2,9 @@ package com.with.second.service;
 
 import com.with.second.dto.BookDto;
 import com.with.second.dto.Book_ImgDto;
-import com.with.second.entity.BookEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
