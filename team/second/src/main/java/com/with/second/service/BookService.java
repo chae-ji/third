@@ -5,6 +5,9 @@ import com.with.second.dto.Book_ImgDto;
 import com.with.second.entity.BookEntity;
 import com.with.second.entity.Book_ImgEntity;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,12 +49,17 @@ public interface BookService {
                 .build();
         entityMap.put("book",entity);
 
+        String str = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+
+        String folderPath =  str.replace("//", File.separator);
+
         Book_ImgDto result = dto.getBook_img();
 
         Book_ImgEntity imgEntity = Book_ImgEntity.builder()
                 .uuid(result.getUuid())
                 .iname(result.getIname())
                 .bookEntity(entity)
+                .path(folderPath)
                 .build();
 
         entityMap.put("book_img",imgEntity);
@@ -75,6 +83,7 @@ public interface BookService {
                 .ino(book_imgEntity.getIno())
                 .iname(book_imgEntity.getIname())
                 .uuid(book_imgEntity.getUuid())
+                .path(book_imgEntity.getPath())
                 .build();
 
         bookDto.setBook_img(book_imgDto);

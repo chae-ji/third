@@ -173,9 +173,9 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public List<BookDto> getOldOrNewListSearchByNameAndDepartment(String keyword, String department, boolean isNew) {
-        List<Object[]> booklist =
-                bookRepository.getOldOrNewListSearchByNameAndDepartment(keyword, department, isNew, Sort.by("bno").descending());
+    public List<BookDto> getOldOrNewListSearchByName(String keyword, boolean isNew) {
+
+        List<Object[]> booklist = bookRepository.getOldOrNewListSearchByName(keyword, isNew, Sort.by("bno").descending());
 
         List<BookDto> bookDtos = new ArrayList<>();
 
@@ -189,9 +189,10 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public List<BookDto> getOldOrNewListSearchByName(String keyword, boolean isNew) {
+    public List<BookDto> getOldOrNewListSearchByNameAndDepartment(String keyword, String department, boolean isNew) {
 
-        List<Object[]> booklist = bookRepository.getOldOrNewListSearchByName(keyword, isNew, Sort.by("bno").descending());
+        List<Object[]> booklist =
+                bookRepository.getOldOrNewListSearchByNameAndDepartment(keyword, department, isNew, Sort.by("bno").descending());
 
         List<BookDto> bookDtos = new ArrayList<>();
 

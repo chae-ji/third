@@ -1,11 +1,13 @@
 package com.with.second.dto;
 
 import lombok.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Data
+@Getter
+@ToString
 public class BucketDto {
 
     private Long sno;
@@ -14,7 +16,7 @@ public class BucketDto {
 
     private String name;   //Book name
 
-    private int price;
+    private int price;  //Book price
 
     private String id;  //Member id
 }

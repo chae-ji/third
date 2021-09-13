@@ -233,4 +233,16 @@ public class BookServiceTests {
             System.out.println("dto : " + dto);
         }
     }
+
+
+    @Test
+    public void search6(){
+
+        List<BookDto> list = service.getOldOrNewListSearchByName("1", false);
+
+        for (BookDto dto : list){
+
+            System.out.println("dto : " + dto);
+        }
+    }
 }

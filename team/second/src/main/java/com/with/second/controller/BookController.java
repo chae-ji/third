@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Column;
 import java.util.List;
 
 @RestController
@@ -56,17 +57,11 @@ public class BookController {
 
         if(keyword != null && department != null){
 
-            log.info("List Page Search By Name And Department........");
+            log.info("List Old Or New Page Search By Name And Department........");
 
             List<BookDto> oldOrNewListSearchByNameAndDepartment = service.getOldOrNewListSearchByNameAndDepartment(keyword, department, isNew);
 
             return new ResponseEntity<>(oldOrNewListSearchByNameAndDepartment,HttpStatus.OK);
-        }
-
-        if(department != null){
-            List<BookDto> getOldOrNewListSearchByDepartment = service.getOldOrNewListSearchByDepartment(department, isNew);
-
-            return new ResponseEntity<>(getOldOrNewListSearchByDepartment, HttpStatus.OK);
         }
 
         if(keyword != null){
@@ -77,6 +72,15 @@ public class BookController {
             return new ResponseEntity<>(oldOrNewListSearchByName, HttpStatus.OK);
         }
 
+        if(department != null){
+            log.info("List Old Or New Page Search By Department........");
+
+            List<BookDto> getOldOrNewListSearchByDepartment = service.getOldOrNewListSearchByDepartment(department, isNew);
+
+            return new ResponseEntity<>(getOldOrNewListSearchByDepartment, HttpStatus.OK);
+        }
+
+        log.info("List Old Or New Page");
         List<BookDto> newOrOldList = service.getNewOrOldList(isNew);
 
         return new ResponseEntity<>(newOrOldList, HttpStatus.OK);
@@ -103,7 +107,7 @@ public class BookController {
     }
 
     @DeleteMapping("/remove/{bno}")
-    public HttpStatus remove(@PathVariable Long bno){
+    public HttpStatus remove(@PathVariable("bno") Long bno){
 
         log.info("bno : " + bno);
 
