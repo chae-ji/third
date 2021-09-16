@@ -52,6 +52,17 @@ public interface BookService {
                 .path(folderPath)
                 .build();
 
+        BookEntity entity = BookEntity.builder()
+                .name(dto.getName())
+                .price(dto.getPrice())
+                .department(dto.getDepartment())
+                .isNew(dto.isNew())
+                .status(dto.getStatus())
+                .book_imgEntity(imgEntity)
+                .build();
+
+        entityMap.put("book",entity);
+
         entityMap.put("book_img",imgEntity);
 
         BookEntity entity = BookEntity.builder()

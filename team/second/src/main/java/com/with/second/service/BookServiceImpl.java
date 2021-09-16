@@ -38,10 +38,14 @@ public class BookServiceImpl implements BookService {
         log.info("book_imgEntity : " + book_imgEntity);
 
         book_imgRepository.save(book_imgEntity);
+<<<<<<< HEAD
 
         bookRepository.save(bookEntity);
 
 
+=======
+        bookRepository.save(bookEntity);
+>>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
     }
 
     @Override
@@ -83,6 +87,11 @@ public class BookServiceImpl implements BookService {
 
         log.info("bno : " + bno);
 
+<<<<<<< HEAD
+=======
+        Long ino = bookRepository.getIno(bno);
+
+>>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
         book_imgRepository.deleteById(ino);
 
         bookRepository.deleteById(bno);

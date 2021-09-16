@@ -21,5 +21,8 @@ public class Book_ImgEntity {
     private String uuid;
 
     private String path;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
 }

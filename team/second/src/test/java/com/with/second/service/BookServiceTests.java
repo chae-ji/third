@@ -236,7 +236,7 @@ public class BookServiceTests {
     @Test
     public void search6(){
 
-        List<BookDto> list = service.getOldOrNewListSearchByName("1", false);
+        List<BookDto> list = service.getOldOrNewListSearchByName("1", true);
 
         for (BookDto dto : list){
 

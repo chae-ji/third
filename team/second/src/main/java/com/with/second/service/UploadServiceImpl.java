@@ -25,9 +25,15 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UploadServiceImpl implements UploadService{
 
+<<<<<<< HEAD
     private final Book_ImgRepository book_imgRepository;
 
     private final BookRepository bookRepository;
+=======
+    private final BookRepository bookRepository;
+
+    private final Book_ImgRepository repository;
+>>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
 
     @Override
     public Map<String, String> upload(String uploadPath, MultipartFile uploadFile) {
@@ -77,9 +83,13 @@ public class UploadServiceImpl implements UploadService{
     }
 
     @Override
-    public File getReal(String uploadPath, Long inum) {
+    public File getReal(String uploadPath, Long ino) {
 
+<<<<<<< HEAD
         Optional<Book_ImgEntity> byId = book_imgRepository.findById(inum);
+=======
+        Optional<Book_ImgEntity> byId = repository.findById(ino);
+>>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
 
         Book_ImgEntity book_imgEntity = byId.get();
 
@@ -90,9 +100,13 @@ public class UploadServiceImpl implements UploadService{
     }
 
     @Override
-    public File getFiction(String uploadPath, Long inum) {
+    public File getFiction(String uploadPath, Long ino) {
 
+<<<<<<< HEAD
         Optional<Book_ImgEntity> byId = book_imgRepository.findById(inum);
+=======
+        Optional<Book_ImgEntity> byId = repository.findById(ino);
+>>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
 
         Book_ImgEntity book_imgEntity = byId.get();
 
@@ -103,9 +117,13 @@ public class UploadServiceImpl implements UploadService{
     }
 
     @Override
-    public boolean remove(String uploadPath, Long inum) {
+    public boolean remove(String uploadPath, Long ino) {
 
+<<<<<<< HEAD
         Optional<Book_ImgEntity> byId = book_imgRepository.findById(inum);
+=======
+        Optional<Book_ImgEntity> byId = repository.findById(ino);
+>>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
 
         Book_ImgEntity book_imgEntity = byId.get();
 
