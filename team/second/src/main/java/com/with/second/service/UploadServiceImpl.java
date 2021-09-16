@@ -1,22 +1,16 @@
 package com.with.second.service;
 
 import com.with.second.entity.Book_ImgEntity;
+import com.with.second.repository.BookRepository;
 import com.with.second.repository.Book_ImgRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import net.coobird.thumbnailator.Thumbnailator;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -31,7 +25,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UploadServiceImpl implements UploadService{
 
-    private final Book_ImgRepository repository;
+    private final Book_ImgRepository book_imgRepository;
+
+    private final BookRepository bookRepository;
 
     @Override
     public Map<String, String> upload(String uploadPath, MultipartFile uploadFile) {
@@ -83,7 +79,7 @@ public class UploadServiceImpl implements UploadService{
     @Override
     public File getReal(String uploadPath, Long inum) {
 
-        Optional<Book_ImgEntity> byId = repository.findById(inum);
+        Optional<Book_ImgEntity> byId = book_imgRepository.findById(inum);
 
         Book_ImgEntity book_imgEntity = byId.get();
 
@@ -96,7 +92,7 @@ public class UploadServiceImpl implements UploadService{
     @Override
     public File getFiction(String uploadPath, Long inum) {
 
-        Optional<Book_ImgEntity> byId = repository.findById(inum);
+        Optional<Book_ImgEntity> byId = book_imgRepository.findById(inum);
 
         Book_ImgEntity book_imgEntity = byId.get();
 
@@ -109,7 +105,7 @@ public class UploadServiceImpl implements UploadService{
     @Override
     public boolean remove(String uploadPath, Long inum) {
 
-        Optional<Book_ImgEntity> byId = repository.findById(inum);
+        Optional<Book_ImgEntity> byId = book_imgRepository.findById(inum);
 
         Book_ImgEntity book_imgEntity = byId.get();
 
@@ -142,16 +138,10 @@ public class UploadServiceImpl implements UploadService{
     }
 
     @Override
-    public Long getBno(Long inum) {
+    public Long getBno(Long ino) {
 
-        Optional<Book_ImgEntity> byId = repository.findById(inum);
+        Long bno = bookRepository.getBno(ino);
 
-        if(byId == null){
-            return 0L;
-        }
-
-        Book_ImgEntity book_imgEntity = byId.get();
-
-        return book_imgEntity.getBookEntity().getBno();
+        return bno;
     }
 }

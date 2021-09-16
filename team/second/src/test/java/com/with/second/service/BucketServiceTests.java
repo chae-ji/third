@@ -11,6 +11,7 @@ import com.with.second.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.jaxb.SpringDataJaxb;
 
 import java.util.List;
 import java.util.Optional;
@@ -47,9 +48,9 @@ public class BucketServiceTests {
 
 
         BucketDto bucketDto = BucketDto.builder()
-                .id(memberEntity.getId())
+                .userId(memberEntity.getId())
                 .bno(bookEntity.getBno())
-                .name(bookEntity.getName())
+                .bookName(bookEntity.getName())
                 .price(bookEntity.getPrice())
                 .build();
 
@@ -73,4 +74,5 @@ public class BucketServiceTests {
         bucketRepository.deleteById(7L);
 
     }
+
 }

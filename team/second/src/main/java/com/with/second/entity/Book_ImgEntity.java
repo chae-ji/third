@@ -9,7 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString(exclude = "bookEntity")
+@ToString
 public class Book_ImgEntity {
 
     @Id
@@ -22,6 +22,4 @@ public class Book_ImgEntity {
 
     private String path;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    private BookEntity bookEntity;
 }

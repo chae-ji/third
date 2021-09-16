@@ -45,9 +45,9 @@ public class UploadController {
 
 
     @GetMapping("/getFiction")
-    public ResponseEntity<byte[]> getFiction(Long inum) throws IOException {
+    public ResponseEntity<byte[]> getFiction(Long ino) throws IOException {
 
-        File file = uploadService.getFiction(uploadPath,inum);
+        File file = uploadService.getFiction(uploadPath,ino);
 
         HttpHeaders header = new HttpHeaders();
 
@@ -57,9 +57,9 @@ public class UploadController {
     }
 
     @GetMapping("/getReal")
-    public ResponseEntity<byte[]> getReal(Long inum) throws IOException {
+    public ResponseEntity<byte[]> getReal(Long ino) throws IOException {
 
-        File file = uploadService.getReal(uploadPath,inum);
+        File file = uploadService.getReal(uploadPath,ino);
 
         HttpHeaders header = new HttpHeaders();
 
@@ -70,11 +70,11 @@ public class UploadController {
     }
 
     @PostMapping("/remove")
-    public ResponseEntity<Boolean> removeFile(Long inum){
+    public ResponseEntity<Boolean> removeFile(Long ino){
 
-        boolean remove = uploadService.remove(uploadPath, inum);
+        boolean remove = uploadService.remove(uploadPath, ino);
 
-        Long bno = uploadService.getBno(inum);
+        Long bno = uploadService.getBno(ino);
 
         if (remove == true && bno != 0L){
             bookService.remove(bno);

@@ -17,7 +17,9 @@ public class OrderDto {
 
     private Long bno;   //Book bno
 
-    private String name;   //Book name
+    private String bookName;   //Book name
 
-    private String id;  //Member id
+    private String userId;  //Member id
+
+    private String status;
 }

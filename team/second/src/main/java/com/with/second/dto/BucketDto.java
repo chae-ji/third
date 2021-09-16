@@ -14,9 +14,9 @@ public class BucketDto {
 
     private Long bno;   //Book bno
 
-    private String name;   //Book name
+    private String bookName;   //Book name
 
     private int price;  //Book price
 
-    private String id;  //Member id
+    private String userId;  //Member id
 }

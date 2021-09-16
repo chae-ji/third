@@ -37,9 +37,9 @@ public class BookServiceImpl implements BookService {
 
         log.info("book_imgEntity : " + book_imgEntity);
 
-        bookRepository.save(bookEntity);
-
         book_imgRepository.save(book_imgEntity);
+
+        bookRepository.save(bookEntity);
 
 
     }
@@ -79,9 +79,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public void remove(Long bno) {
 
+        Long ino = bookRepository.getIno(bno);
+
         log.info("bno : " + bno);
 
-        book_imgRepository.deleteByBno(bno);
+        book_imgRepository.deleteById(ino);
 
         bookRepository.deleteById(bno);
     }

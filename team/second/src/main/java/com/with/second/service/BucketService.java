@@ -22,13 +22,13 @@ public interface BucketService {
     default BucketEntity dtoToEntity(BucketDto dto) {
 
         BookEntity bookEntity = BookEntity.builder()
-                .name(dto.getName())
+                .name(dto.getBookName())
                 .bno(dto.getBno())
                 .price(dto.getPrice())
                 .build();
 
         MemberEntity memberEntity = MemberEntity.builder()
-                .id(dto.getId())
+                .id(dto.getUserId())
                 .build();
 
         BucketEntity bucketEntity = BucketEntity.builder()
@@ -45,9 +45,9 @@ public interface BucketService {
         BucketDto dto = BucketDto.builder()
                 .sno(bucketEntity.getSno())
                 .bno(bucketEntity.getBookEntity().getBno())
-                .name(name)
+                .bookName(name)
                 .price(bucketEntity.getBookEntity().getPrice())
-                .id(bucketEntity.getMemberEntity().getId())
+                .userId(bucketEntity.getMemberEntity().getId())
                 .build();
 
 
