@@ -27,8 +27,5 @@ public class OrderEntity extends BaseEntity{
     public void changeStatus(String status) {
         this.status = status;
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
 }

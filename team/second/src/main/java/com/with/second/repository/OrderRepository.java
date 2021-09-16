@@ -10,13 +10,11 @@ import java.util.List;
 
 public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 
-<<<<<<< HEAD
     @Query("select o, o.bookEntity.name from OrderEntity o where o.memberEntity.id = :id")
     List<Object[]> getList(@Param("id") String id, Sort sort);
 
-}
-=======
+
     @Query("select o,o.bookEntity.name,o.bookEntity.book_imgEntity.ino from OrderEntity o where o.memberEntity.id = :id")
     List<Object[]> getList(@Param("id") String id, Sort sort);
 }
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
+

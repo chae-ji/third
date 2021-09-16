@@ -7,10 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-<<<<<<< HEAD
 import org.springframework.transaction.annotation.Transactional;
-=======
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,11 +41,7 @@ public class OrderServiceImpl implements OrderService{
 
         for(Object[] result : results){
 
-<<<<<<< HEAD
-            OrderDto orderDto = entityToDTO((OrderEntity) result[0], (String)result[1]);
-=======
             OrderDto orderDto = entityToDTO((OrderEntity) result[0], (String)result[1],(Long)result[2]);
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
 
             orderDtos.add(orderDto);
         }
@@ -56,11 +49,8 @@ public class OrderServiceImpl implements OrderService{
         return orderDtos;
     }
 
-<<<<<<< HEAD
 
     @Transactional
-=======
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
     @Override
     public void remove(Long ono) {
 
@@ -69,15 +59,11 @@ public class OrderServiceImpl implements OrderService{
         orderRepository.deleteById(ono);
     }
 
-<<<<<<< HEAD
+
 
     @Override
     public void update(Long ono, String status) {
-=======
-    @Override
-    public void update(Long ono, String status) {
 
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
         Optional<OrderEntity> result = orderRepository.findById(ono);
 
         if (result.isPresent()) {
@@ -87,8 +73,5 @@ public class OrderServiceImpl implements OrderService{
             orderRepository.save(orderEntity);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
+

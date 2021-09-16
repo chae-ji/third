@@ -13,20 +13,11 @@ public interface OrderService {
 
     List<OrderDto> getList(String id);
 
-<<<<<<< HEAD
     void remove(Long ono);
 
     void update(Long ono, String status);
 
-    default OrderDto entityToDTO(OrderEntity entity, String bookName){
 
-        BookEntity bookEntity = BookEntity.builder()
-                .bno(entity.getBookEntity().getBno())
-                .name(bookName)
-=======
-    void update(Long ono, String status);
-
-    void remove(Long ono);
 
     default OrderDto entityToDTO(OrderEntity entity, String name, Long ino){
 
@@ -34,7 +25,6 @@ public interface OrderService {
                 .bno(entity.getBookEntity().getBno())
                 .name(name)
                 .book_imgEntity(entity.getBookEntity().getBook_imgEntity())
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
                 .build();
 
         MemberEntity memberEntity = MemberEntity.builder().id(entity.getMemberEntity().getId()).build();
@@ -46,10 +36,7 @@ public interface OrderService {
                 .userId(memberEntity.getId())
                 .orderDate(entity.getRegdate())
                 .status(entity.getStatus())
-<<<<<<< HEAD
-=======
                 .ino(bookEntity.getBook_imgEntity().getIno())
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
                 .build();
 
         return dto;
@@ -72,8 +59,7 @@ public interface OrderService {
 
         return orderEntity;
     }
-<<<<<<< HEAD
+
 }
-=======
+
 }
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
