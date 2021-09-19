@@ -9,7 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString(exclude = {"book_imgEntity"})
+@ToString(exclude = "book_imgEntity")
 public class BookEntity extends BaseEntity{
 
     @Id

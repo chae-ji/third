@@ -18,7 +18,7 @@ import java.util.Map;
 @Service
 @Log4j2
 @RequiredArgsConstructor
-public class BookServiceImpl implements BookService {
+public class BookServiceImpl implements BookService{
 
     private final BookRepository bookRepository;
 
@@ -38,14 +38,7 @@ public class BookServiceImpl implements BookService {
         log.info("book_imgEntity : " + book_imgEntity);
 
         book_imgRepository.save(book_imgEntity);
-<<<<<<< HEAD
-
         bookRepository.save(bookEntity);
-
-
-=======
-        bookRepository.save(bookEntity);
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
     }
 
     @Override
@@ -55,11 +48,11 @@ public class BookServiceImpl implements BookService {
 
         List<BookDto> bookDtos = new ArrayList<>();
 
-        for(Object[] result : bookList) {
+        for(Object[] result : bookList){
 
-            BookDto dto = entitiesToDTO((BookEntity) result[0], (Book_ImgEntity) result[1]);
+            BookDto bookDto = entitiesToDTO((BookEntity) result[0], (Book_ImgEntity) result[1]);
 
-            bookDtos.add(dto);
+            bookDtos.add(bookDto);
         }
 
         return bookDtos;
@@ -76,6 +69,8 @@ public class BookServiceImpl implements BookService {
 
         BookDto bookDto = entitiesToDTO(bookEntity, book_imgEntity);
 
+        log.info("bookDto : " + bookDto);
+
         return bookDto;
     }
 
@@ -83,15 +78,10 @@ public class BookServiceImpl implements BookService {
     @Override
     public void remove(Long bno) {
 
-        Long ino = bookRepository.getIno(bno);
-
         log.info("bno : " + bno);
 
-<<<<<<< HEAD
-=======
         Long ino = bookRepository.getIno(bno);
 
->>>>>>> 39920db7332b085d01dc02ff6f688e8978e12708
         book_imgRepository.deleteById(ino);
 
         bookRepository.deleteById(bno);

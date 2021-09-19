@@ -1,9 +1,7 @@
 package com.with.second.controller;
 
 import com.with.second.dto.OrderDto;
-
 import com.with.second.entity.OrderEntity;
-
 import com.with.second.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -42,10 +40,6 @@ public class OrderController {
     }
 
     @PutMapping("/update")
-    public HttpStatus update(Long ono, String status) {
-
-        log.info("omo : " + ono);
-
     public HttpStatus update(Long ono, String status){
 
         log.info("ono : " + ono);
@@ -58,9 +52,6 @@ public class OrderController {
     }
 
     @DeleteMapping("/remove")
-
-    public HttpStatus remove(Long ono) {
-
     public HttpStatus remove(Long ono){
 
         log.info("ono : " + ono);
@@ -69,8 +60,4 @@ public class OrderController {
 
         return HttpStatus.OK;
     }
-
 }
-
-}
-

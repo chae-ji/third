@@ -66,11 +66,7 @@ public class UploadController {
 
     }
 
-
-    @PostMapping("/remove")
-
     @DeleteMapping("/remove")
-
     public ResponseEntity<Boolean> removeFile(Long ino){
 
         boolean remove = uploadService.remove(uploadPath, ino);

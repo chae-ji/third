@@ -21,6 +21,4 @@ public class Book_ImgEntity {
     private String uuid;
 
     private String path;
-
-
 }

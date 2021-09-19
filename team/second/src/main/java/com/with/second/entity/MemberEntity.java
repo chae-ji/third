@@ -64,4 +64,3 @@ public class MemberEntity implements UserDetails{
         return false;
     }
 }
-

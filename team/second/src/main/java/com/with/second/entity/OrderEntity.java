@@ -27,5 +27,4 @@ public class OrderEntity extends BaseEntity{
     public void changeStatus(String status) {
         this.status = status;
     }
-
 }

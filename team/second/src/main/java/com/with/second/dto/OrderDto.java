@@ -17,8 +17,6 @@ public class OrderDto {
 
     private Long bno;    //Book bno
 
-    private String bookName;   //Book name
-
     private String bookName;    //Book name
 
     private Long ino;   //Book_Img ino

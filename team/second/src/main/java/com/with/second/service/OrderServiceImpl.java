@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,8 +48,6 @@ public class OrderServiceImpl implements OrderService{
         return orderDtos;
     }
 
-
-    @Transactional
     @Override
     public void remove(Long ono) {
 
@@ -58,8 +55,6 @@ public class OrderServiceImpl implements OrderService{
 
         orderRepository.deleteById(ono);
     }
-
-
 
     @Override
     public void update(Long ono, String status) {
@@ -74,4 +69,3 @@ public class OrderServiceImpl implements OrderService{
         }
     }
 }
-

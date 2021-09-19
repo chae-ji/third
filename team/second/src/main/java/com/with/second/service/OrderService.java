@@ -2,6 +2,7 @@ package com.with.second.service;
 
 import com.with.second.dto.OrderDto;
 import com.with.second.entity.BookEntity;
+import com.with.second.entity.Book_ImgEntity;
 import com.with.second.entity.MemberEntity;
 import com.with.second.entity.OrderEntity;
 
@@ -13,18 +14,18 @@ public interface OrderService {
 
     List<OrderDto> getList(String id);
 
-    void remove(Long ono);
-
     void update(Long ono, String status);
 
-
+    void remove(Long ono);
 
     default OrderDto entityToDTO(OrderEntity entity, String name, Long ino){
+
+        Book_ImgEntity book_imgEntity = Book_ImgEntity.builder().ino(ino).build();
 
         BookEntity bookEntity = BookEntity.builder()
                 .bno(entity.getBookEntity().getBno())
                 .name(name)
-                .book_imgEntity(entity.getBookEntity().getBook_imgEntity())
+                .book_imgEntity(book_imgEntity)
                 .build();
 
         MemberEntity memberEntity = MemberEntity.builder().id(entity.getMemberEntity().getId()).build();
@@ -59,7 +60,4 @@ public interface OrderService {
 
         return orderEntity;
     }
-
-}
-
 }

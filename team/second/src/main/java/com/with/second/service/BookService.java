@@ -65,22 +65,10 @@ public interface BookService {
 
         entityMap.put("book_img",imgEntity);
 
-        BookEntity entity = BookEntity.builder()
-                .name(dto.getName())
-                .price(dto.getPrice())
-                .department(dto.getDepartment())
-                .isNew(dto.isNew())
-                .status(dto.getStatus())
-                .book_imgEntity(imgEntity)
-                .build();
-        entityMap.put("book",entity);
-
-
         return entityMap;
     }
 
     default BookDto entitiesToDTO(BookEntity bookEntity, Book_ImgEntity book_imgEntity){
-
 
         BookDto bookDto = BookDto.builder()
                 .bno(bookEntity.getBno())

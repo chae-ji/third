@@ -1,3 +1,4 @@
+
 package com.with.second.repository;
 
 import com.with.second.entity.OrderEntity;
@@ -10,11 +11,6 @@ import java.util.List;
 
 public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 
-    @Query("select o, o.bookEntity.name from OrderEntity o where o.memberEntity.id = :id")
-    List<Object[]> getList(@Param("id") String id, Sort sort);
-
-
     @Query("select o,o.bookEntity.name,o.bookEntity.book_imgEntity.ino from OrderEntity o where o.memberEntity.id = :id")
     List<Object[]> getList(@Param("id") String id, Sort sort);
 }
-
