@@ -31,7 +31,7 @@ public class UploadController {
     private String uploadPath;
 
     @PostMapping("/upload")
-    public ResponseEntity<Map<String,String>> uploadFile(MultipartFile uploadFile){
+    public ResponseEntity<Map<String,String>> uploadFile(@RequestPart("file") MultipartFile uploadFile){
 
         log.info("uploadFile : " + uploadFile);
 
@@ -47,6 +47,7 @@ public class UploadController {
         File file = uploadService.getFiction(uploadPath,ino);
 
         HttpHeaders header = new HttpHeaders();
+
 
         header.add("Content-Type", Files.probeContentType(file.toPath()));
 

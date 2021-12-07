@@ -42,6 +42,7 @@ public class UploadServiceImpl implements UploadService{
         }
 
         String originalName = uploadFile.getOriginalFilename();
+        log.info("origin = " + originalName);
 
         String fileName = originalName.substring(originalName.lastIndexOf("\\") + 1);
 
@@ -53,7 +54,11 @@ public class UploadServiceImpl implements UploadService{
 
         String saveName = uploadPath + File.separator + folderPath + File.separator + uuid + "_" + fileName;
 
+        log.info("saveName = " + saveName);
+
         Path savePath = Paths.get(saveName);
+
+        log.info("savePath = " + savePath);
 
         try {
             uploadFile.transferTo(savePath);
@@ -124,9 +129,11 @@ public class UploadServiceImpl implements UploadService{
 
     private String makeFolder(String uploadPath) {
 
-        String str = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+        String folderPath = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
 
-        String folderPath =  str.replace("//", File.separator);
+        log.info("str = " + folderPath);
+
+//        String folderPath =  str.replace("//", File.separator);
 
         // make folder --------
         File uploadPathFolder = new File(uploadPath, folderPath);
