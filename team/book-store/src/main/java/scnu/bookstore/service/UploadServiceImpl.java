@@ -5,6 +5,7 @@ import net.coobird.thumbnailator.Thumbnailator;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import scnu.bookstore.dto.Book_ImgDto;
+import scnu.bookstore.repository.Book_ImgRepository;
 
 import java.io.File;
 import java.io.IOException;
@@ -97,7 +98,7 @@ public class UploadServiceImpl implements UploadService{
 
     @Override
     public File getReal(String uploadPath, Long ino) {
-        return null;
+
     }
 
     @Override
